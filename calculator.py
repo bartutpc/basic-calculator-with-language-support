@@ -1,49 +1,56 @@
-def calculate(n1, process, n2):
-    if process == "+":
+def calculate(n1, p, n2):
+    if p == "+":
         return n1 + n2
-    elif process == "-":
+    elif p == "-":
         return n1 - n2
-    elif process == "*":
+    elif p == "*":
         return n1 * n2
-    elif process == "/":
+    elif p == "/":
         return n1 / n2
     else:
         return None
     
 while True:
 
-    lang = input("Choose your language (EN/TR), Dilini seç (TR/EN): ").lower()
+    lang = input("Choose your language (EN/TR), Dilini seç (EN/TR): ").lower().strip().replace(" ", "")
 
     if lang not in ("tr","en"):
-        print("Choose right language, Doğru dili seç.")
+        print("Please choose right language and try again, Lütfen doğru dili seçin ve tekrar deneyin.")
         continue
 
     while True:
-
+        
         try:
-            if lang == "tr":
-                n1 = float(input("İlk sayıyı gir: "))
-                process = input("İşlemini seç (+,-,*,/): ")
-                n2 = float(input("İkinci sayıyı gir: "))
-            else:
-                n1 = float(input("Enter your first number: "))
-                process = input("Choose your process (+,-,*,/): ")
-                n2 = float(input("Enter your second number: "))
 
-            result = calculate(n1, process, n2)
+            n1 = float(input("Enter first number: " if lang == "en" else "Birinci sayıyı gir: "))
+            p = input("Choose your process (+,-,*,/): " if lang == "en" else "İşleminizi seçiniz (+,-,*,/): ")
+            n2 = float(input("Enter second number: " if lang == "en" else "İkinci sayıyı gir: "))
+
+            result = calculate(n1, p, n2)
 
             if result is None:
-                print("Yanlış işlemi seçtin." if lang=="tr" else "Wrong process.")
+                print("Please choose right process and try again." if lang == "en" else "Lütfen doğru işlemi seçin ve tekrar deneyin.")
                 continue
 
-            print(f"{n1} {process} {n2} = {result:.2f}")
-            break
+            print(f"{n1} {p} {n2} = {result:.2f}")
+
+            while True:
+
+                again = input("Do you want use calculator again? (yes/no): " if lang == "en" else "Hesap makinesini tekrar kullanmak istiyor musunuz? (evet/hayır): ").lower().strip().replace(" ", "")
+
+                if again.lower().strip() in ("yes", "evet"):
+                 break               
+                 
+                elif again.lower().strip() in ("no", "hayır"):
+                 exit()
+
+                else:
+                 print("Please just answer yes or no and try again." if lang == "en" else "Lütfen sadece evet veya hayır olarak cevap verin ve tekrar deneyin.")
+                 continue
             
         except ValueError:
-            print("Sayı girip tekrar dene." if lang=="tr" else "Enter a valid number and try again.")
+            print("Please enter a valid number and try again" if lang == "en" else "Lütfen geçerli bir sayı girip tekrar deneyiniz.")
             continue
         except ZeroDivisionError:
-            print("Bir sayıyı sıfıra bölemezsin tekrar dene" if lang=="tr" else "You cannot divide by zero try again.")
+            print("You cannot divide by zero please try again." if lang == "en" else "Bir sayıyı sıfıra bölemezsin lütfen tekrar deneyin.")
             continue
-
-    break
