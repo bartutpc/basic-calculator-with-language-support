@@ -1,18 +1,16 @@
 # Basic Calculator
 
-This is a simple calculator I built using what I learned from CS50 Lecture 0.  
-It supports addition (+), subtraction (-), multiplication (*), and division (/).  
-Includes error handling for invalid input and division by zero.  
+A simple calculator written in Python while I was learning the language.
 
-Languages supported: English (EN) and Turkish (TR).
+## Features
+- Basic operations: Addition (+), Subtraction (-), Multiplication (*), Division (/)
+- Input validation and ZeroDivisionError handling
+- Turkish and English language support
+- Option to continue or exit after a calculation is complete
 
+## Usage
+Run it from your terminal: `python calculator.py` 
+- Select Language → First number → Operation → Second number → Result → Choose whether to continue → Based on your answer, either return to the first number prompt or exit
 
-#####################################################################################
-
-# Basit Hesap Makinesi
-
-CS50 Lecture 0’dan öğrendiklerimle yaptığım basit bir hesap makinesi.  
-Toplama (+), çıkarma (-), çarpma (*) ve bölme (/) işlemlerini destekler.  
-Hatalı girişler ve sıfıra bölme durumları için hata kontrolü vardır.  
-
-Desteklenen diller: İngilizce (EN) ve Türkçe (TR).
+## Note
+This is a simple and clear project made for learning purposes. I'm open to ideas and suggestions for improvement.
